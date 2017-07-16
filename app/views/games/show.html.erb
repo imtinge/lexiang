@@ -1,0 +1,12 @@
+<div class="ui clearing raised segment">
+  <div class="ui basic center aligned segment">
+    <h2 class="header"><%= @game.title %></h2>
+    <%= render 'common/tag_line', tags: @game.tag_list %>
+  </div>
+  <% if @game.picture.present? %>
+    <%= image_tag @game.picture.url, class: 'ui centered rounded image' %>
+  <% end %>
+  <div class="ui segment">
+    <%== @game.content %>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<%= simple_form_for [:admin, @game] do |f| %>
+  <%= f.error_notification %>
+
+  <%= f.input :title, label: '名称' %>
+  <%= f.input :tag_list, label: '标签', input_html: { value: f.object.tag_list.to_s } %>
+  <%= f.input :picture, as: :file %>
+  <%= f.input :content, as: :hidden %>
+  <div class="field">
+    <div id="editor">
+      <%== @game.content  %>
+    </div>
+  </div>
+
+  <%= f.button :submit, value: yield(:button_value) %>
+<% end %>
+
+<%= content_for :javascripts do %>
+  <%= javascript_include_tag '//unpkg.com/wangeditor/release/wangEditor.min.js' %>
+  <script type="text/javascript">
+    var E = window.wangEditor
+    var editor = new E('#editor')
+    editor.customConfig.uploadImgShowBase64 = true   // 使用 base64 保存图片
+    editor.customConfig.onchange = function (html) {
+      $("input[name='game[content]']").attr('value', html)
+    }
+    editor.create()
+  </script>
+<% end %>

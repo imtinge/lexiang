@@ -1,0 +1,8 @@
+<div class="ui right floated large vertical menu">
+  <% tags.each do |tag| %>
+    <%= link_to games_path(tag_id: tag.id), class: 'item' do %>
+      <%= tag.name %>
+      <div class="ui label"><%= tag.taggings_count %></div>
+    <% end %>
+  <% end %>
+</div>

@@ -1,0 +1,27 @@
+<%= link_to 'New Game', new_admin_game_path, class: 'ui right floated primary button', 'data-turbolinks': false %>
+<h1>游戏库管理</h1>
+<table class='ui single line large table'>
+  <thead>
+    <tr>
+      <th class="one wide">#</th>
+      <th class='three wide'>名称</th>
+      <th class='ten wide'>标签</th>
+      <th colspan="2" class='two wide'></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @games.each_with_index do |game, i| %>
+      <tr>
+        <td><%= i+1 %></td>
+        <td><%= link_to game.title, admin_game_path(game) %></td>
+        <td><%= render 'common/tag_line', tags: game.tag_list %></td>
+        <td><%= link_to '编辑', edit_admin_game_path(game) %></td>
+        <td><%= link_to '删除', admin_game_path(game), method: :delete, data: { confirm: '确认删除？' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="ui hidden divider"></div>
+<%= will_paginate @games, renderer: WillPaginateSemanticUi::ActionView::Renderer, class: "right floated" %>

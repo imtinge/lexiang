@@ -1,0 +1,17 @@
+<div class="ui clearing raised segment">
+  <div class="ui basic center aligned segment">
+    <h2 class="header"><%= @game.title %></h2>
+    <%= render 'common/tag_line', tags: @game.tag_list %>
+  </div>
+  <% if @game.picture.present? %>
+    <%= image_tag @game.picture.url, class: 'ui centered rounded image' %>
+  <% end %>
+  <div class="ui very padded segment">
+    <%== @game.content %>
+  </div>
+  <div class="ui buttons">
+    <%= link_to '编辑', edit_admin_game_path(@game), 'data-turbolinks': false, class: 'ui button' %>
+    <div class="or"></div>
+    <%= link_to '返回', admin_games_path, class: 'ui positive button' %>
+  </div>
+</div>
