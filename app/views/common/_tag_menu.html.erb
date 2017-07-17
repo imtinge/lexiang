@@ -1,4 +1,4 @@
-<div class="ui large vertical stackable menu">
+<div class="ui large vertical stackable menu" style='width:auto;'>
   <% tags.each do |tag| %>
     <%= link_to games_path(tag_id: tag.id), class: 'item' do %>
       <%= tag.name %>
