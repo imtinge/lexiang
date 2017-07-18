@@ -3,11 +3,6 @@ class Admin::GamesController < ApplicationController
   before_action :require_admin
   before_action :set_game, only: [:show, :edit, :update, :destroy]
 
-  def not_authenticated
-    redirect_to login_path, alert: '访问本页面前请先登录！'
-  end
-
-
   # GET /games
   # GET /games.json
   def index

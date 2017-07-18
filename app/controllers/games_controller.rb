@@ -1,4 +1,5 @@
 class GamesController < ApplicationController
+  before_action :require_login, only: :show
 
   # GET /games
   # GET /games.json
