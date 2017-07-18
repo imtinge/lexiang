@@ -68,9 +68,9 @@ class Admin::GamesController < ApplicationController
       params.require(:game).permit(:title, :content, :picture, :tag_list)
     end
 
-    def require_is_admin
+    def require_admin
       unless current_user.admin?
-        flash[:alert] = '需要拥有管理员权限才能访问本业！'
+        flash.now[:alert] = '需要拥有管理员权限才能访问本业！'
         redirect_to root_path
       end
     end
