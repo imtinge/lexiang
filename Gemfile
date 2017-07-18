@@ -40,6 +40,7 @@ gem 'acts-as-taggable-on'
 gem 'will_paginate'
 gem 'will_paginate_semantic_ui'
 gem 'figaro'
+gem 'sorcery'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

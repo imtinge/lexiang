@@ -1,5 +1,12 @@
 class Admin::GamesController < ApplicationController
+  before_action :require_login
+  before_action :require_admin
   before_action :set_game, only: [:show, :edit, :update, :destroy]
+
+  def not_authenticated
+    redirect_to login_path, alert: '访问本页面前请先登录！'
+  end
+
 
   # GET /games
   # GET /games.json
@@ -59,5 +66,12 @@ class Admin::GamesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def game_params
       params.require(:game).permit(:title, :content, :picture, :tag_list)
+    end
+
+    def require_is_admin
+      unless current_user.admin?
+        flash[:alert] = '需要拥有管理员权限才能访问本业！'
+        redirect_to root_path
+      end
     end
 end

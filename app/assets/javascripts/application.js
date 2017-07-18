@@ -13,3 +13,4 @@
 //= require jquery
 //= require semantic-ui
 //= require rails-ujs
+//= require semantic_ui_ready

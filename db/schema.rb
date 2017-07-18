@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170715075037) do
+ActiveRecord::Schema.define(version: 20170718035341) do
 
   create_table "games", force: :cascade do |t|
     t.string "title"
@@ -43,6 +43,19 @@ ActiveRecord::Schema.define(version: 20170715075037) do
     t.string "name"
     t.integer "taggings_count", default: 0
     t.index ["name"], name: "index_tags_on_name", unique: true
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "username", null: false
+    t.string "crypted_password"
+    t.string "salt"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "remember_me_token"
+    t.datetime "remember_me_token_expires_at"
+    t.boolean "is_admin", default: false
+    t.index ["remember_me_token"], name: "index_users_on_remember_me_token"
+    t.index ["username"], name: "index_users_on_username", unique: true
   end
 
 end
