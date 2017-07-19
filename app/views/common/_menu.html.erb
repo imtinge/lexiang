@@ -6,15 +6,14 @@
       <% unless logged_in? %>
         <%= link_to '登录', login_path, class: 'item' %>
       <% else %>
+        <% if current_user.admin? %>
+          <%= link_to '游戏库管理', admin_games_path, class: 'item' %>
+        <% end %>
         <div class="ui dropdown item">
           <i class="user icon"></i>
           <%= current_user.username %>
           <i class="dropdown icon"></i>
           <div class="menu">
-            <% if current_user.admin? %>
-              <%= link_to '游戏库管理', admin_games_path, class: 'item' %>
-              <div class="ui divider"></div>
-            <% end %>
             <%= link_to '退出', logout_path, class: 'item' %>
           </div>
         </div>
