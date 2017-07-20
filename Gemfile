@@ -31,14 +31,16 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'jquery-rails'
-gem 'semantic-ui-sass'
+# gem 'semantic-ui-sass'
+gem 'bootstrap-sass'
+gem 'font-awesome-rails'
 gem 'simple_form'
 gem 'carrierwave'
 gem 'carrierwave-qiniu'
 gem 'mini_magick'
 gem 'acts-as-taggable-on'
 gem 'will_paginate'
-gem 'will_paginate_semantic_ui'
+gem 'will_paginate-bootstrap'
 gem 'figaro'
 gem 'sorcery'
 

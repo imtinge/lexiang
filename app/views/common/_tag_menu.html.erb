@@ -1,8 +1,8 @@
-<div class="ui large vertical stackable fluid menu">
+<ul class="list-group">
   <% tags.each do |tag| %>
-    <%= link_to games_path(tag_id: tag.id), class: 'item' do %>
+    <%= link_to games_path(tag_id: tag.id), class: 'list-group-item' do %>
+      <span class="badge"><%= tag.taggings_count %></span>
       <%= tag.name %>
-      <div class="ui label"><%= tag.taggings_count %></div>
     <% end %>
   <% end %>
-</div>
+</ul>

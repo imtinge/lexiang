@@ -5,12 +5,12 @@
   <%= f.input :tag_list, label: '标签', input_html: { value: f.object.tag_list.to_s } %>
   <%= f.input :picture, as: :file, label: '图片' %>
   <%= f.input :content, as: :hidden %>
-  <div class="field">
+  <div class='form-group text game_content'>
     <div id="editor">
       <%== @game.content  %>
     </div>
   </div>
-
+  <br>
   <%= f.button :submit, value: yield(:button_value) %>
 <% end %>
 

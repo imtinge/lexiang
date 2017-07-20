@@ -1,7 +1,6 @@
-<div class="ui right floated buttons">
-  <%= link_to '查看', admin_game_path(@game), class: 'ui button' %>
-  <div class="or"></div>
-  <%= link_to '返回', admin_games_path, class: 'ui positive button' %>
+<div class='pull-right btn-group'>
+  <%= link_to '查看', admin_game_path(@game), class: 'btn btn-default' %>
+  <%= link_to '返回', admin_games_path, class: 'btn btn-primary' %>
 </div>
 <h1>编辑游戏</h1>
 <% provide :button_value, '更新' %>

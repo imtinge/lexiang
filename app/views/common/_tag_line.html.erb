@@ -1,7 +1,5 @@
 <% if tags %>
-  <div class="ui tiny labels">
-    <% tags.each do |tag| %>
-      <div class="ui label"><%= tag %></div>
-    <% end %>
-  </div>
+  <% tags.each do |tag| %>
+    <span class='label label-default'><%= tag %></span>
+  <% end %>
 <% end %>

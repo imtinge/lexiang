@@ -1,28 +1,29 @@
-<div class="ui stackable grid">
-  <div class="twelve wide column">
-    <div class="ui three stackable cards">
+<div class="row">
+  <div class="col-lg-3">
+    <%= render 'common/tag_menu', tags: @tags %>
+  </div>
+  <div class="col-lg-9">
+    <div class="row">
       <% @games.each do |game| %>
-        <div class="card">
-          <%= link_to game_path(game), class: 'image' do %>
-            <% if game.picture.present? %>
-              <%= image_tag game.picture.thumb.url %>
-            <% else %>
-              <%= image_tag 'https://semantic-ui.com/images/wireframe/square-image.png' %>
+        <div class="col-sm-6 col-md-4">
+          <div class="thumbnail">
+            <%= link_to game_path(game) do %>
+              <% if game.picture.present? %>
+                <%= image_tag game.picture.thumb.url %>
+              <% else %>
+                <%= image_tag 'https://semantic-ui.com/images/wireframe/square-image.png' %>
+              <% end %>
+              <div class="caption">
+                <%= link_to game.title, game_path(game), class: 'h4' %>
+                <p>
+                  <%= render 'common/tag_line', tags: game.tag_list %>
+                </p>
+              </div>
             <% end %>
-          <% end %>
-          <div class="content">
-            <%= link_to game.title, game_path(game), class: 'header' %>
-          </div>
-          <div class="extra content">
-            <%= render 'common/tag_line', tags: game.tag_list %>
           </div>
         </div>
       <% end %>
     </div>
-    <div class="ui hidden divider"></div>
-    <%= will_paginate @games, renderer: WillPaginateSemanticUi::ActionView::Renderer, class: "right floated" %>
-  </div>
-  <div class="four wide column">
-    <%= render 'common/tag_menu', tags: @tags %>
+    <%= will_paginate @collection, renderer: BootstrapPagination::Rails %>
   </div>
 </div>

@@ -1,12 +1,14 @@
-<%= link_to 'New Game', new_admin_game_path, class: 'ui right floated primary button', 'data-turbolinks': false %>
+<div class="pull-right">
+  <%= link_to 'New Game', new_admin_game_path, class: 'btn btn-primary' %>
+</div>
 <h1>游戏库管理</h1>
-<table class='ui single line large table'>
+<table class='table table-stripped table-hover'>
   <thead>
     <tr>
-      <th class="one wide">#</th>
-      <th class='three wide'>名称</th>
-      <th class='ten wide'>标签</th>
-      <th colspan="2" class='two wide'></th>
+      <th>#</th>
+      <th>名称</th>
+      <th>标签</th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
@@ -22,6 +24,4 @@
     <% end %>
   </tbody>
 </table>
-
-<div class="ui hidden divider"></div>
-<%= will_paginate @games, renderer: WillPaginateSemanticUi::ActionView::Renderer, class: "right floated" %>
+<%= will_paginate @collection, renderer: BootstrapPagination::Rails %>

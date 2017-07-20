@@ -1,8 +1,8 @@
-<h1>用户登录</h1>
-<div class="ui segment">
-  <%= simple_form_for :session, url: sessions_path do |f| %>
-    <%= f.input :username, label: '用户名' %>
-    <%= f.input :password, label: '密码' %>
-    <%= f.button :submit, value: '登录' %>
-  <% end %>
+<div class="page-header">
+  <h2>用户登录</h2>
 </div>
+<%= simple_form_for :session, url: sessions_path do |f| %>
+  <%= f.input :username, label: '用户名' %>
+  <%= f.input :password, label: '密码' %>
+  <%= f.button :submit, value: '登录', class: 'btn btn-primary' %>
+<% end %>

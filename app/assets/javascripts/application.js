@@ -11,6 +11,5 @@
 // about supported directives.
 //
 //= require jquery
-//= require semantic-ui
+//= require bootstrap
 //= require rails-ujs
-//= require semantic_ui_ready
